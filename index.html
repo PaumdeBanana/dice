@@ -46,7 +46,7 @@
 
   async function rodar() {
 
-    document.getElementById("h1").innerHTML = "Empate!";
+    document.getElementById("h1").innerHTML = "...";
     
     audio.play()
     
@@ -55,7 +55,7 @@
         r2 = Math.floor(Math.random() * 6 + 1)
         document.getElementById("d1").src = "images/dice" + r1 + ".png";
         document.getElementById("d2").src = "images/dice" + r2 + ".png";
-        await sleep(100)
+        await sleep(150)
     }
     
     audio.currentTime = 0
