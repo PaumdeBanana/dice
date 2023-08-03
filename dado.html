@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Dado</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Lobster" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1 id="h1">
+      Boa sorte!
+    </h1>
+
+    <div class="dado">
+      <p>Jogador 1</p>
+      <img class="img" src="images/dice1.png" id="d1">
+    </div>
+
+    <div class="dado">
+      <p>Jogador 2</p>
+      <img class="img" src="images/dice1.png" id="d2">
+    </div>
+
+    <div>
+      <button class="button" onclick=rodar()>
+        <label>Rodar</label>
+      </button>
+    </div>
+  </div>
+
+</body>
+
+<footer>
+  www 🎲 tem_dado_em_casa 🎲 com
+</footer>
+
+<script>
+  var r1
+  var r2
+  const audio = new Audio('dice.mp3');
+
+  async function rodar() {
+    
+    audio.play()
+    
+    for (var x = 0; x < 10; x++) {
+        r1 = Math.floor(Math.random() * 6 + 1)
+        r2 = Math.floor(Math.random() * 6 + 1)
+        document.getElementById("d1").src = "images/dice" + r1 + ".png";
+        document.getElementById("d2").src = "images/dice" + r2 + ".png";
+        await sleep(100)
+    }
+    
+    audio.currentTime = 0
+    audio.pause()
+
+    if (r1 > r2) {
+      document.getElementById("h1").innerHTML = "jogador 1 ganhou!";
+    }
+
+    else if (r1 < r2) {
+      document.getElementById("h1").innerHTML = "jogador 2 ganhou!";
+    }
+
+    else {
+      document.getElementById("h1").innerHTML = "Empate!";
+    }
+  }
+
+  function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+
+</script>
+
+</html>
