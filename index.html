@@ -19,7 +19,7 @@
 
     <div class="dado m-4">
       <p class="text-success">Jogador 1</p>
-      <img class="img" src="images/dice1.png" id="d1">
+      <img class="img bounce" src="images/dice1.png" id="d1">
     </div>
 
     <div class="dado m-4">
@@ -49,8 +49,8 @@
   const audio = new Audio('dice.mp3');
 
   async function rodar() {
-    document.getElementById("d1").classList.add("jogar")
-    document.getElementById("d2").classList.add("jogar")
+    document.getElementById("d1").classList.add("jogar");
+    document.getElementById("d2").classList.add("jogar");
 
     if (a == 1) {
       while (true) {
@@ -62,7 +62,7 @@
 
         audio.play()
 
-        for (var x = 0; x < 11; x++) {
+        for (var x = 0; x < 12; x++) {
           r1 = Math.floor(Math.random() * 6 + 1)
           r2 = Math.floor(Math.random() * 6 + 1)
           document.getElementById("d1").src = "images/dice" + r1 + ".png";
@@ -74,12 +74,12 @@
         audio.pause()
 
         if (r1 > r2) {
-          document.getElementById("h1").innerHTML = "Jogador 1 ganhou!";
+          document.getElementById("h1").innerHTML = "jogador 1 ganhou!";
           break;
         }
 
         else if (r1 < r2) {
-          document.getElementById("h1").innerHTML = "Jogador 2 ganhou!";
+          document.getElementById("h1").innerHTML = "jogador 2 ganhou!";
           break;
         }
 
