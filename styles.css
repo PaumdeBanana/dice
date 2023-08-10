@@ -28,7 +28,7 @@ p {
 
 .jogar{
   animation-name: jogar;
-  animation-duration: 0.2s;
+  animation-duration: 0.3s;
   animation-iteration-count: infinite;
 }
 
