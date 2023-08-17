@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Dois Dados</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-dark">
+
+  <div>
+    <nav class="navbar navbar-expand-lg navbar-dark justify-content-right" style="background-color: #2c2e30;">
+      <a class="navbar-brand">
+        <img src="images/dice.png" height="50" />
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link" href="index.html">Um Dado</a>
+          <a class="nav-item nav-link active" href="dois.html">Dois Dados</a>
+          <a class="nav-item nav-link" href="criador.html">Criador</a>
+        </div>
+      </div>
+    </nav>
+
+  </div>
+
+  <div class="container">
+
+    <h1 class="text-success">
+      Boa sorte!
+    </h1>
+
+    <div class="dado m-4">
+      <p class="text-success">Jogador 1</p>
+      <img class="img" src="images/dice1.png" id="d1">
+    </div>
+
+    <div class="dado m-4">
+      <p class="text-success">Jogador 2</p>
+      <img class="img" src="images/dice1.png" id="d2">
+    </div>
+
+    <div>
+      <button class="button btn btn-success btn-lg m-4" onclick=rodar()>
+        Rodar
+      </button>
+    </div>
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+  integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+
+<script>
+  var r1
+  var r2
+  var a = 1
+  const audio = new Audio('dice.mp3');
+
+  async function rodar() {
+    $("#d1").addClass("jogar")
+    $("#d2").addClass("jogar")
+
+    if (a == 1) {
+      while (true) {
+
+        a = 0
+
+        $("h1").text("...")
+
+        audio.play()
+
+        for (var x = 0; x < 11; x++) {
+          r1 = Math.floor(Math.random() * 6 + 1)
+          r2 = Math.floor(Math.random() * 6 + 1)
+          $("#d1").attr("src", "images/dice" + r1 + ".png")
+          $("#d2").attr("src", "images/dice" + r2 + ".png")
+          await sleep(125)
+        }
+
+        audio.currentTime = 0
+        audio.pause()
+
+        if (r1 > r2) {
+          $("h1").text("Jogador 1 ganhou!")
+          break;
+        }
+
+        else if (r1 < r2) {
+          $("h1").text("Jogador 2 ganhou!")
+          break;
+        }
+
+        else {
+          $("h1").text("Empate!")
+          break;
+        }
+      }
+    }
+    $("#d1").removeClass("jogar")
+    $("#d2").removeClass("jogar")
+    await sleep(500)
+    a = 1
+  }
+
+  function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+</script>
+
+</html>
