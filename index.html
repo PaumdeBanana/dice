@@ -9,10 +9,10 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="bg-dark">
+<body>
 
   <div>
-    <nav class="navbar navbar-expand-lg navbar-dark justify-content-right" style="background-color: #2c2e30;">
+    <nav class="navbar navbar-expand-lg navbar-dark justify-content-right">
       <a class="navbar-brand">
         <img src="images/dice.png" height="50" />
       </a>
@@ -32,7 +32,7 @@
 
   <div class="container">
 
-    <h1 class="text-success">
+    <h1 class="text-danger">
       Boa sorte!
     </h1>
 
@@ -40,7 +40,7 @@
       <img class="img" src="images/dice1.png" id="d1">
     </div>
     <div>
-      <button class="button btn btn-success btn-lg m-4" onclick=rodar()>
+      <button class="button btn btn-danger btn-lg m-4" id="bt" onclick=rodar()>
         Rodar
       </button>
     </div>
@@ -62,6 +62,7 @@
 
   async function rodar() {
     $("#d1").addClass("jogar")
+    $("#bt").addClass("rodar")
     $("h1").text("...")
 
     audio.play()
@@ -74,6 +75,7 @@
     audio.currentTime = 0
     audio.pause()
     $("#d1").removeClass("jogar")
+    $("#bt").removeClass("rodar")
     $("h1").text("Jogue novamente!")
     await sleep(500)
   }

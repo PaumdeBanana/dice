@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+.container {
+  width: 70%;
+  margin: auto;
+  text-align: center;
+}
+
+.dado {
+  text-align: center;
+  display: inline-block;
+}
+
+body {
+  background: linear-gradient(180deg, rgba(44,46,48,1) 0%, rgba(69,59,59,1) 100%);
+}
+
+h1 {
+  font-family: 'Orbitron', sans-serif;
+  text-shadow: 5px 0 #232931;
+  font-size: 100px;
+}
+
+p {
+  font-size: 2rem;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.jogar{
+  animation-name: jogar;
+  animation-duration: 0.2s;
+  animation-iteration-count: infinite;
+}
+
+.rodar{
+  animation-name: rodar;
+  animation-duration: 0.2s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes jogar {
+  0%{ transform: rotate(15deg);}
+  25%{ transform: rotate(0deg);}
+  50%{ transform: rotate(-15deg);}
+  75%{ transform: rotate(0deg);}
+  100%{ transform: rotate(15deg);}
+}
+
+@keyframes rodar {
+  0%{ transform: rotate(0deg);}
+  25%{ transform: rotate(90deg);}
+  50%{ transform: rotate(180deg);}
+  75%{ transform: rotate(216deg);}
+  100%{ transform: rotate(288deg);}
+}

@@ -12,7 +12,8 @@
 }
 
 body {
-  background-color: #393E46;
+  background: rgb(44,46,48);
+  background: linear-gradient(180deg, rgba(44,46,48,1) 0%, rgba(69,59,59,1) 100%);
 }
 
 h1 {
@@ -28,7 +29,13 @@ p {
 
 .jogar{
   animation-name: jogar;
-  animation-duration: 0.3s;
+  animation-duration: 0.2s;
+  animation-iteration-count: infinite;
+}
+
+.rodar{
+  animation-name: rodar;
+  animation-duration: 0.2s;
   animation-iteration-count: infinite;
 }
 
@@ -38,4 +45,12 @@ p {
   50%{ transform: rotate(-15deg);}
   75%{ transform: rotate(0deg);}
   100%{ transform: rotate(15deg);}
+}
+
+@keyframes rodar {
+  0%{ transform: rotate(0deg);}
+  25%{ transform: rotate(90deg);}
+  50%{ transform: rotate(180deg);}
+  75%{ transform: rotate(216deg);}
+  100%{ transform: rotate(288deg);}
 }
