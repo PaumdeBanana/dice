@@ -13,6 +13,7 @@
 
 body {
   background: linear-gradient(180deg, rgba(44,46,48,1) 0%, rgba(69,59,59,1) 100%);
+  min-height: 100vh;
 }
 
 h1 {
