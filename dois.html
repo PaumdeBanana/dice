@@ -53,6 +53,26 @@
       </button>
     </div>
 
+    <hr>
+
+    <div>
+      <h2 class="text-danger m-2">
+        Placar:
+      </h2>
+
+      <div class="placar m-4">
+        <p class="text-danger">Jogador 1</p>
+        <h2 class="text-success">0</h2>
+      </div>
+
+      <div class="placar m-4">
+        <p class="text-danger">Jogador 2</p>
+        <h2 class="text-success">0</h2>
+      </div>
+
+    </div>
+
+  </div>
 </body>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -61,11 +81,14 @@
   integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
   integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"
+  integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 
 <script>
   var r1
   var r2
+  var p1 = 0
+  var p2 = 0
   var a = 1
   const audio = new Audio('dice.mp3');
 
@@ -96,11 +119,15 @@
 
         if (r1 > r2) {
           $("h1").text("Jogador 1 ganhou!")
+          p1++
+          $("h2")[0].text("Jogador 1 ganhou!")
           break;
         }
 
         else if (r1 < r2) {
           $("h1").text("Jogador 2 ganhou!")
+          p2++
+          $("h2")[1].text("Jogador 1 ganhou!")
           break;
         }
 
